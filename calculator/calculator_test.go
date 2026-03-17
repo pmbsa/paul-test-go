@@ -33,3 +33,23 @@ func TestSubtract(t *testing.T) {
 		}
 	}
 }
+
+func TestMultiply(t *testing.T) {
+	tests := []struct {
+		a, b, want int
+	}{
+		{3, 4, 12},
+		{0, 5, 0},
+		{5, 0, 0},
+		{0, 0, 0},
+		{-2, 3, -6},
+		{-2, -3, 6},
+		{1, 7, 7},
+	}
+	for _, tt := range tests {
+		got := Multiply(tt.a, tt.b)
+		if got != tt.want {
+			t.Errorf("Multiply(%d, %d) = %d, want %d", tt.a, tt.b, got, tt.want)
+		}
+	}
+}
